@@ -17,8 +17,7 @@ def buscar_veiculo():
     
     # Gerando texto a partir da imagem
     vehicle_description = generate_text_from_image(vehicle_image)
-
-    print(vehicle_description)
+   
     # Aqui você deve ter a lógica para verificar se o veículo existe no seu banco de dados
     vehicle = buscar_veiculo_por_placa(vehicle_description)  # Altere conforme necessário
 
@@ -26,9 +25,7 @@ def buscar_veiculo():
         vehicle_data = vehicle.to_dict()  # Serializa o veículo para um dicionário
         return jsonify(vehicle_data), 200  # Retorna os dados do veículo
     else:
-        return jsonify({"error": "Veículo não encontrado"}), 404
-
-
+        return jsonify({"error": f"Veículo com placa: {vehicle_description} não encontrado"}), 404
 
 @bp.route('/adicionar_veiculo', methods=['POST'])
 def adicionar_novo_veiculo():
