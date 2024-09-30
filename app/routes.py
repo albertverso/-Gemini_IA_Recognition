@@ -46,3 +46,7 @@ def adicionar_novo_veiculo():
     adicionar_veiculo(placa, modelo, cor, ano, dono)
 
     return jsonify({"message": "Veículo adicionado com sucesso"}), 201
+
+@bp.route('/loadingAPI', methods=['GET'])
+def loadingAPI():
+    return jsonify({"message": "API carregada com sucesso"}), 200
