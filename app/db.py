@@ -1,10 +1,10 @@
 from app.models import Vehicle
 from app import db
 
-def adicionar_veiculo(placa, modelo, cor, ano, dono):
-    novo_veiculo = Vehicle(placa=placa, modelo=modelo, cor=cor, ano=ano, dono=dono)
-    db.session.add(novo_veiculo)
+def add_vehicle(license_plate, model, color, year, owner):
+    new_vehicle = Vehicle(license_plate=license_plate, model=model, color=color, year=year, owner=owner)
+    db.session.add(new_vehicle)
     db.session.commit()
 
-def buscar_veiculo_por_placa(placa):
-    return Vehicle.query.filter_by(placa=placa).first()
+def search_vehicle_by_plate(license_plate):
+    return Vehicle.query.filter_by(license_plate=license_plate).first()

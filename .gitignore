@@ -13,6 +13,7 @@ google_vision_veiculos
 __pycache__/
 *.py[cod]
 *$py.class
+migrations
 
 # C extensions
 *.so

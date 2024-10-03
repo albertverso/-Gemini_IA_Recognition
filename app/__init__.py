@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config.config import Config
 from flask_cors import CORS
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
 
@@ -22,6 +23,9 @@ def create_app():
     # Inicializar SQLAlchemy com o app Flask
     db.init_app(app)
 
+    # Inicializar o Flask-Migrate com o app e o db
+    migrate = Migrate(app, db)
+    
     # Registro de blueprints e rotas aqui
     from app.routes import bp as routes_bp
     app.register_blueprint(routes_bp)
