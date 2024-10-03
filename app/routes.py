@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.models import Vehicle, User
 from app import db
-from app.db import add_vehicle, search_vehicle_by_plate
+from app.db import add_vehicle, search_vehicle_by_plate, existing_vehicle
 from app.vision import generate_text_from_image
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
@@ -48,6 +48,10 @@ def add_new_vehicle(current_user_id):
 
     if not license_plate or not model or not color or not year or not owner:
         return jsonify({"error": "Dados incompletos"}), 400
+
+    existing_vehicle_plate = existing_vehicle(license_plate)
+    if existing_vehicle_plate:
+        return jsonify({"error": "Veículo ja existe"}), 409
 
     add_vehicle(license_plate, model, color, year, owner)
 

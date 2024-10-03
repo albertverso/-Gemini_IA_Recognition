@@ -8,3 +8,6 @@ def add_vehicle(license_plate, model, color, year, owner):
 
 def search_vehicle_by_plate(license_plate):
     return Vehicle.query.filter_by(license_plate=license_plate).first()
+
+def existing_vehicle(license_plate):
+    return Vehicle.query.filter_by(license_plate=license_plate).first()
