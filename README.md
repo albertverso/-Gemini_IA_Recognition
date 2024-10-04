@@ -1,4 +1,4 @@
-# Vehicle Plate Recognition API
+# Consultar Veiculo API
 - Esta API em Python utiliza a inteligência artificial do Gemini para detectar e reconhecer placas de veículos a partir de fotos. A API verifica se a placa já está cadastrada no sistema e oferece funcionalidades para gerenciamento de veículos e usuários. O projeto foi desenvolvido com Flask, SQLAlchemy, Google Generative AI e JWT.
 - Deploy do front que testa a aplicação: https://vehicle-consultation.vercel.app 
 
